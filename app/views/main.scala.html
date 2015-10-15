@@ -1,0 +1,51 @@
+@(title: String)(content: Html)
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@title</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/landing/bootstrap.min.css")" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/landing/font-awesome/css/font-awesome.min.css")">
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/landing/animate.min.css")">
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/landing/creative.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("favicon.ico")">
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <a class="navbar-brand page-scroll" href="#page-top">@title</a>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+ @content
+
+    <script src="@routes.Assets.versioned("javascripts/landing/jquery.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/landing/bootstrap.min.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/landing/jquery.easing.min.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/landing/jquery.fittext.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/landing/wow.min.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/landing/creative.js")"></script>
+    </body>
+
+</html>
