@@ -1,6 +1,6 @@
 package controllers
 
-import play.api._
+import com.rabbitmq.client.AMQP;
 import play.api.mvc._
 import Models._
 
