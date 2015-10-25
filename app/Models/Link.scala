@@ -1,7 +1,4 @@
-package Models
+package models
 
-case class Link(val userid: String,val url: String)
+case class Link(userId: String, url: String, title: String, summary: String )
 
-object Link {
-
-}

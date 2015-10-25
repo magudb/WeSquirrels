@@ -1,14 +1,28 @@
 package controllers
 
-import com.rabbitmq.client.AMQP;
+
+import models._
 import play.api.mvc._
-import Models._
 
 class Application extends Controller {
+  def createUser(implicit request: RequestHeader): Option[User] = {
+    for {
+      userId <- request.session.get("userId")
+      name <- request.session.get("name")
+      picture <- request.session.get("picture")
+    } yield {
+        User(userId, name, picture)
+    }
+  }
 
-  def index = Action {
-    val person = new Link("userid", "http://google.com");
-    Ok(views.html.index(person.url))
+  def index = Action {  request =>
+
+    createUser(request).map { user =>
+      Ok(views.html.home(user))
+    }.getOrElse {
+      Ok(views.html.index("hello"))
+    }
+
   }
 
 }
