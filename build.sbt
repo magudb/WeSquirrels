@@ -11,7 +11,7 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   specs2 % Test,
-  "com.rabbitmq"         % "amqp-client"          % "3.2.1",,
+  "com.rabbitmq"         % "amqp-client"          % "3.2.1",
   "net.liftweb" %% "lift-json" % "2.6.2"
 )
 

@@ -48,7 +48,7 @@ class Services extends Controller {
       .replyTo(replyQueueName)
       .build()
 
-      val url:String = url_option map { _ } getOrElse ""
+      val url:String = url_option map { _.toLowerCase() } getOrElse ""
 
       if(url.isEmpty){
         Future.successful(BadRequest("No url supplied"))
@@ -60,7 +60,6 @@ class Services extends Controller {
     Future.successful(Ok(response))
   }
   def getRPCCallback(id: String, delivery:Delivery): String = delivery.getProperties().getCorrelationId().equals(id) match{
-    case _ => ""
     case true => return fromBytes(delivery.getBody())
     case false => getRPCCallback(id, consumer.nextDelivery())
   }

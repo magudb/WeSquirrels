@@ -4,7 +4,7 @@ import java.util.UUID
 
 import play.api.Play
 import play.api.mvc.{Action, Controller}
-import utilities.OAuth2
+import utilities.OAuth
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -13,12 +13,12 @@ import scala.concurrent.Future
  * Created by mud on 15-10-2015.
  */
 class Authentication  extends Controller {
-  lazy val oauth2 = new OAuth2(Play.current)
+  lazy val oauth  = new OAuth(Play.current)
   lazy val scope = Play.current.configuration.getString("google.client.scope").get
 
   def google = Action { implicit request =>
       val state = UUID.randomUUID().toString  // random confirmation string
-      val redirectUrl = oauth2.getAuthorizationUrl(scope, state)
+      val redirectUrl = oauth.getAuthorizationUrl(scope, state)
       Redirect(redirectUrl);
     }
 
@@ -33,8 +33,7 @@ class Authentication  extends Controller {
       codeString <- code
       stateString <- state
     } yield {
-        val token = oauth2.getToken(codeString)
-        oauth2.getUser(token).map { user =>
+        oauth.getUser(codeString).map { user =>
           Redirect("/").withSession("userId" -> user.userId, "name" -> user.name, "picture" -> user.picture)
         }.recover {
           case ex: IllegalStateException => Unauthorized(ex.getMessage)
