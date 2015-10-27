@@ -26,8 +26,6 @@ class Authentication  extends Controller {
     Redirect("/").withNewSession
   }
 
-
-
   def googleCallback(code: Option[String] = None, state: Option[String] = None) = Action.async { implicit request =>
     (for {
       codeString <- code

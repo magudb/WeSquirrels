@@ -38,7 +38,6 @@ class OAuth(application: Application) {
       }
     } yield user
 
-
     futureResponse.map[User] { response =>
               val jsonResult = response.json
                 println(response.json.toString())
