@@ -8,12 +8,9 @@ import play.api.mvc.{Action, Controller}
 import scala.concurrent.Future
 
 class Services extends Controller {
-  def linkAdd(url: Option[String], title: Option[String], summary: Option[String]) = Action { request =>
 
-    Ok("Send for creation")
-  }
 
-  /*val factory = new ConnectionFactory()
+  val factory = new ConnectionFactory()
   factory.setHost("localhost")
   val connection = factory.newConnection()
   val rpcChannel = connection.createChannel()
@@ -69,5 +66,5 @@ class Services extends Controller {
     case false => getRPCCallback(id, consumer.nextDelivery())
   }
 
-*/
+
 }
