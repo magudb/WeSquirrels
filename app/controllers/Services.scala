@@ -11,7 +11,7 @@ class Services extends Controller {
   factory.setHost(host)
   val connection = factory.newConnection();
   val sendingChannel = connection.createChannel();
-  val exchange = "amq.fanout"
+  val exchange = "fanout"
 
   def linkAdd(url: Option[String], title: Option[String], summary: Option[String]) = Action { request =>
 
