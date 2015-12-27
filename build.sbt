@@ -16,8 +16,8 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   specs2 % Test,
-  "com.rabbitmq"         % "amqp-client"          % "3.2.1",
-  "net.liftweb" %% "lift-json" % "2.6.2"
+  "net.liftweb" %% "lift-json" % "2.6.2",
+  "com.github.tyagihas" % "scala_nats_2.10" % "0.1"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"

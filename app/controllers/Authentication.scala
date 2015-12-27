@@ -12,7 +12,7 @@ import scala.concurrent.Future
 /**
  * Created by mud on 15-10-2015.
  */
-class Authentication  extends Controller {
+class Authentication extends Controller {
   lazy val oauth  = new OAuth(Play.current)
   lazy val scope = Play.current.configuration.getString("google.client.scope").get
 

@@ -6,7 +6,7 @@
 GET     /                           controllers.Application.index
 
 #Services
-POST /services/link                 controllers.Services.linkAdd(url: Option[String], title: Option[String], summary: Option[String])
+POST /services/link                 controllers.Services.linkAdd
 
 #Authentication
 GET     /auth/logout                controllers.Authentication.logout
